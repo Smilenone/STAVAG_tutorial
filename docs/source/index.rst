@@ -21,7 +21,7 @@ Uncovering directionally and temporally variable genes with STAVAG
    :maxdepth: 1
    :caption: API References
 
-   api/index
+   api
 ----
 
 Overview of STAVAG
