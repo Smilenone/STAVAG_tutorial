@@ -49,7 +49,6 @@ html_theme_options = {
 
 autosummary_generate = True
 autosummary_imported_members = True
-autodoc_mock_imports = MOCKS
 autodoc_default_options = {
     "members": True,
     "undoc-members": True,
@@ -84,7 +83,7 @@ if hasattr(sys.modules["matplotlib"], "__dict__"):
     sys.modules["matplotlib"].pyplot = sys.modules.get(
         "matplotlib.pyplot", types.ModuleType("matplotlib.pyplot")
     )
-
+autodoc_mock_imports = MOCKS
 # -- Options for HTML output -------------------------------------------------
 
 # The theme to use for HTML and HTML Help pages.  See the documentation for
