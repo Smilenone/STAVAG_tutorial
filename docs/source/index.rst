@@ -58,6 +58,12 @@ you can install the important Python packages used to run the model are as follo
    pip install scikit-learn
    pip install scipy
 
+now you can install the STAVAG Python package as follows:
+
+.. code-block:: bash
+
+   pip install STAVAG
+
 Citation
 ========
 
