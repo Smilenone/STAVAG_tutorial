@@ -61,6 +61,11 @@ exclude_patterns = []
 nbsphinx_execute = 'never'     
 nbsphinx_allow_errors = True    
 
+autodoc_mock_imports = [
+    'numpy', 'pandas', 'scanpy', 'lightgbm', 'matplotlib',
+    'sklearn', 'scipy'
+]
+
 # -- Options for HTML output -------------------------------------------------
 
 # The theme to use for HTML and HTML Help pages.  See the documentation for
