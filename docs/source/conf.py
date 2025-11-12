@@ -68,22 +68,61 @@ exclude_patterns = []
 nbsphinx_execute = 'never'     
 nbsphinx_allow_errors = True    
 
-MOCKS = [
+os.environ.setdefault("READTHEDOCS", "1")
+
+# 一个可调用 可取属性 的 Dummy 对象
+class _Dummy:
+    def __init__(self, *a, **k): pass
+    def __call__(self, *a, **k): return _Dummy()
+    def __getattr__(self, name): return _Dummy()
+    def __iter__(self): return iter([])
+    def __repr__(self): return "<Dummy>"
+
+# 生成带有 __getattr__ 的桩模块 任何属性访问都返回 Dummy
+def _stub_module(fullname, attrs=None, as_package=False):
+    mod = types.ModuleType(fullname)
+    # PEP 562 模块级 __getattr__ 支持 from m import X 这类访问
+    def __getattr__(attr):
+        return _Dummy()
+    mod.__getattr__ = __getattr__
+    if as_package:
+        mod.__path__ = []  # 标成包 允许有子模块
+    if attrs:
+        for k, v in attrs.items():
+            setattr(mod, k, v)
+    sys.modules[fullname] = mod
+    return mod
+
+# 先把顶层包占住
+for pkg in ["sklearn", "matplotlib", "scipy"]:
+    if pkg not in sys.modules:
+        _stub_module(pkg, as_package=True)
+
+# 针对会被显式 from-import 的符号 提供命名桩
+_stub_module("sklearn.metrics", {
+    "mean_squared_error": lambda *a, **k: 0.0,
+    "r2_score": lambda *a, **k: 0.0,
+}, as_package=False)
+
+class _DummyEstimator:
+    def __init__(self, *a, **k): pass
+    def fit(self, *a, **k): return self
+    def predict(self, *a, **k): return []
+
+_stub_module("sklearn.multioutput", {
+    "MultiOutputRegressor": _DummyEstimator,
+}, as_package=False)
+
+# 其他常见依赖做通用桩 足够支撑导入与注释提取
+for name in [
     "numpy", "pandas", "scanpy", "lightgbm",
-    "matplotlib", "matplotlib.pyplot",
-    "sklearn", "sklearn.metrics", "sklearn.multioutput",
+    "matplotlib.pyplot",
     "scipy", "scipy.cluster", "scipy.cluster.hierarchy",
     "anndata",
-]
-for m in MOCKS:
-    sys.modules.setdefault(m, types.ModuleType(m))
+]:
+    if name not in sys.modules:
+        _stub_module(name)
 
-# 让 matplotlib 有个 pyplot 属性，避免属性访问报错
-if hasattr(sys.modules["matplotlib"], "__dict__"):
-    sys.modules["matplotlib"].pyplot = sys.modules.get(
-        "matplotlib.pyplot", types.ModuleType("matplotlib.pyplot")
-    )
-autodoc_mock_imports = MOCKS
 # -- Options for HTML output -------------------------------------------------
 
 # The theme to use for HTML and HTML Help pages.  See the documentation for
