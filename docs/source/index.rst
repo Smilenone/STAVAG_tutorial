@@ -1,9 +1,9 @@
-.. STAligner documentation master file, created by
-   sphinx-quickstart on Sun Dec 25 15:28:06 2022.
+.. STAVAG documentation master file, created by
+   sphinx-quickstart on Sun Nov 16 15:28:06 2025.
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-STAligner: Integrating spatial transcriptomics data across different conditions, technologies, and developmental stages
+Uncovering directionally and temporally variable genes with STAVAG
 ====================================================================================================================================================
 
 .. toctree::
