@@ -1,0 +1,18 @@
+.rst-content img,
+div.nboutput img,
+div.figure img,
+img.align-center {
+  max-width: 100%;
+  height: auto !important;
+}
+
+div.nboutput svg,
+.rst-content .figure svg {
+  width: 100%;
+  height: auto !important;
+}
+
+div.nboutput img[style],
+div.nboutput svg[style] {
+  height: auto !important;
+}
