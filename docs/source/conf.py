@@ -30,7 +30,12 @@ release = '1.0.0'
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
-extensions = ['nbsphinx',
+extensions = [
+    'nbsphinx',
+    'sphinx.ext.autodoc',
+    'sphinx.ext.autosummary',
+    'sphinx.ext.napoleon',
+    'sphinx.ext.viewcode',
 ]
 
 html_theme_options = {
@@ -38,6 +43,12 @@ html_theme_options = {
     "collapse_navigation": True,
     "titles_only": True
 }
+
+autosummary_generate = True
+autodoc_member_order = 'bysource'
+autodoc_typehints = 'description'
+napoleon_google_docstring = True
+napoleon_numpy_docstring = True
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
