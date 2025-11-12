@@ -46,6 +46,8 @@ templates_path = ['_templates']
 # This pattern also affects html_static_path and html_extra_path.
 exclude_patterns = []
 
+nbsphinx_execute = 'never'      # 禁止执行 .ipynb
+nbsphinx_allow_errors = True    # 即使单元格有报错也不让构建失败
 
 # -- Options for HTML output -------------------------------------------------
 
