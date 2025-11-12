@@ -35,7 +35,8 @@ extensions = ['nbsphinx',
 
 html_theme_options = {
     "navigation_depth": 1,    
-    "collapse_navigation": True 
+    "collapse_navigation": True,
+    "titles_only": True
 }
 
 # Add any paths that contain templates here, relative to this directory.
