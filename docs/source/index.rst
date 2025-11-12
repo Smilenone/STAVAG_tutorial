@@ -8,7 +8,8 @@ STAligner: Integrating spatial transcriptomics data across different conditions,
 
 .. toctree::
    :maxdepth: 1
-   
+   :titlesonly:
+
    Case_I_STAVAG_on_2D_cSCC_data
    Case_II_STAVAG_on_3D_planarian_data
    Case_III_STAVAG_on_STARmap_3D_cortex
