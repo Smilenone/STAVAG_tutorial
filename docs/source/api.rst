@@ -1,6 +1,8 @@
 API References
 ==============
 
+.. currentmodule:: STAVAG
+
 .. automodule:: STAVAG
    :members:
    :undoc-members:
@@ -8,11 +10,10 @@ API References
 
 .. autosummary::
    :toctree: _autosummary
-   :recursive:
 
-   STAVAG.generate_coord_dict
-   STAVAG.calculate_sps
-   STAVAG.keep_variant_genes
-   STAVAG.DVG_detection
-   STAVAG.TVG_detection
-   STAVAG.gene_modules
+   generate_coord_dict
+   calculate_sps
+   keep_variant_genes
+   DVG_detection
+   TVG_detection
+   gene_modules
