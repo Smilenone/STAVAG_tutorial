@@ -28,7 +28,7 @@ Overview of STAVAG
    
 Installation
 ============ 
-set up conda environment for STAVAG:
+Set up conda environment for STAVAG:
 
 .. code-block:: python
 
