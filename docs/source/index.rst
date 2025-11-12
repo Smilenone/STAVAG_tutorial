@@ -17,6 +17,11 @@ Uncovering directionally and temporally variable genes with STAVAG
    Case_IV_STAVAG_on_mouse_myocardial_infarction_progression_data
    Case_V_STAVAG_on_mouse_embryonic_development_data
 
+.. toctree::
+   :maxdepth: 1
+   :caption: API References
+
+   api/index
 ----
 
 Overview of STAVAG
