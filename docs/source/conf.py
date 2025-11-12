@@ -17,7 +17,7 @@
 
 # -- Project information -----------------------------------------------------
 
-project = 'STAlVAG'
+project = 'STAVAG'
 copyright = '2025, Qunlun Shen'
 author = 'Qunlun Shen'
 
