@@ -1,3 +1,5 @@
+.. _api:
+
 API References
 ==============
 
@@ -8,8 +10,11 @@ API References
    :undoc-members:
    :show-inheritance:
 
+.. rubric:: Key functions
+
 .. autosummary::
-   :toctree: _autosummary
+   :toctree: api/generated
+   :nosignatures:
 
    generate_coord_dict
    calculate_sps
