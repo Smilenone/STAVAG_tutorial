@@ -68,7 +68,10 @@ html_sidebars = {
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = ['_static']
-html_css_files = ['hide_subsections.css']
+html_css_files = [
+    'hide_subsections.css',
+    'fix_image_ratio.css', 
+]
 
 def setup(app):
     app.add_css_file('hide_subsections.css') 
