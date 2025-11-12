@@ -1,10 +1,16 @@
 .. STAVAG documentation master file, created by
-   sphinx-quickstart on Sun Nov 16 15:28:06 2025.
+   sphinx-quickstart on Wed Nov 12 15:28:06 2025.
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
 Uncovering directionally and temporally variable genes with STAVAG
 ====================================================================================================================================================
+
+   
+Overview of STAVAG
+========================     
+.. image:: STAVAG_overview.png
+   :width: 600
 
 .. toctree::
    :maxdepth: 1
@@ -15,12 +21,6 @@ Uncovering directionally and temporally variable genes with STAVAG
    Case_III_STAVAG_on_STARmap_3D_cortex
    Case_IV_STAVAG_on_mouse_myocardial_infarction_progression_data
    Case_V_STAVAG_on_mouse_embryonic_development_data
-   
-   
-Overview of STAVAG
-========================     
-.. image:: STAVAG_overview.png
-   :width: 600
    
     
  STAVAG can handle spatial transcriptomics data for single, 3D, or multiple slices coupled with temporal information. STAVAG takes spatial transcriptomics data as input and then fits the spatial or temporal direction of spatial data with gene expression using a gradient-boosting tree for regression. STAVAG calculates the gene contribution score along any given direction or temporal progression for each gene and identifies directionally variable genes (DVGs), and temporally variable genes (TVGs) for different scenarios.
