@@ -1,7 +1,7 @@
 API References
 ==============
 
-.. automodule:: STAVAG.STAVAG
+.. automodule:: STAVAG
    :members:
    :undoc-members:
    :show-inheritance:
