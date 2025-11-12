@@ -9,7 +9,7 @@ Uncovering directionally and temporally variable genes with STAVAG
 .. toctree::
    :maxdepth: 1
    :titlesonly:
-   :caption: 教程
+   :caption: Tutorials
 
    Case_I_STAVAG_on_2D_cSCC_data
    Case_II_STAVAG_on_3D_planarian_data
