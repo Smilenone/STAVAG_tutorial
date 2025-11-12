@@ -34,8 +34,8 @@ extensions = ['nbsphinx',
 ]
 
 html_theme_options = {
-    "navigation_depth": 1,      # 只显示页面标题
-    "collapse_navigation": True # 折叠子层级
+    "navigation_depth": 1,    
+    "collapse_navigation": True 
 }
 
 # Add any paths that contain templates here, relative to this directory.
@@ -46,8 +46,8 @@ templates_path = ['_templates']
 # This pattern also affects html_static_path and html_extra_path.
 exclude_patterns = []
 
-nbsphinx_execute = 'never'      # 禁止执行 .ipynb
-nbsphinx_allow_errors = True    # 即使单元格有报错也不让构建失败
+nbsphinx_execute = 'never'     
+nbsphinx_allow_errors = True    
 
 # -- Options for HTML output -------------------------------------------------
 
