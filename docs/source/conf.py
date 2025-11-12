@@ -58,7 +58,11 @@ nbsphinx_allow_errors = True
 #html_theme = 'alabaster'
 html_theme = 'sphinx_rtd_theme'
 html_sidebars = {
-    '**': ['globaltoc.html', 'searchbox.html']
+    '**': [
+        'sphinx_rtd_theme/sidebar/brand.html',
+        'sphinx_rtd_theme/sidebar/search.html',
+        'sphinx_rtd_theme/sidebar/navigation.html',
+    ]
 }
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
