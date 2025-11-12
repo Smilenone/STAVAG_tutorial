@@ -24,7 +24,8 @@ Overview of STAVAG
 
 .. image:: STAVAG_overview.png
    :width: 600
-   :align: center
+   :align: left
+
 
 STAVAG can handle spatial transcriptomics data for single, 3D, or multiple slices coupled with temporal information. STAVAG takes spatial transcriptomics data as input and then fits the spatial or temporal direction of spatial data with gene expression using a gradient boosting tree for regression. STAVAG calculates the gene contribution score along any given direction or temporal progression for each gene and identifies directionally variable genes (DVGs) and temporally variable genes (TVGs) for different scenarios.
 
