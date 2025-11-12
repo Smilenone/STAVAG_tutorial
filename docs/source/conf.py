@@ -12,7 +12,10 @@
 #
 import os
 import sys
-sys.path.insert(0, os.path.abspath('../..'))
+import types
+
+ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
+sys.path.insert(0, ROOT)
 
 
 # -- Project information -----------------------------------------------------
@@ -45,8 +48,13 @@ html_theme_options = {
 }
 
 autosummary_generate = True
-autodoc_member_order = 'bysource'
-autodoc_typehints = 'description'
+autosummary_imported_members = True
+autodoc_mock_imports = MOCKS
+autodoc_default_options = {
+    "members": True,
+    "undoc-members": True,
+    "show-inheritance": True,
+}
 napoleon_google_docstring = True
 napoleon_numpy_docstring = True
 
@@ -61,10 +69,21 @@ exclude_patterns = []
 nbsphinx_execute = 'never'     
 nbsphinx_allow_errors = True    
 
-autodoc_mock_imports = [
-    'numpy', 'pandas', 'scanpy', 'lightgbm', 'matplotlib',
-    'sklearn', 'scipy'
+MOCKS = [
+    "numpy", "pandas", "scanpy", "lightgbm",
+    "matplotlib", "matplotlib.pyplot",
+    "sklearn", "sklearn.metrics", "sklearn.multioutput",
+    "scipy", "scipy.cluster", "scipy.cluster.hierarchy",
+    "anndata",
 ]
+for m in MOCKS:
+    sys.modules.setdefault(m, types.ModuleType(m))
+
+# 让 matplotlib 有个 pyplot 属性，避免属性访问报错
+if hasattr(sys.modules["matplotlib"], "__dict__"):
+    sys.modules["matplotlib"].pyplot = sys.modules.get(
+        "matplotlib.pyplot", types.ModuleType("matplotlib.pyplot")
+    )
 
 # -- Options for HTML output -------------------------------------------------
 
@@ -91,3 +110,8 @@ html_css_files = [
 
 def setup(app):
     app.add_css_file('hide_subsections.css') 
+try:
+    import STAVAG as _S
+    print("[docs] STAVAG imported from:", getattr(_S, "__file__", _S))
+except Exception as e:
+    print("[docs] STAVAG import failed:", e)
