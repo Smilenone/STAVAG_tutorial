@@ -1,1 +1,3 @@
-.wy-menu-vertical ul.current li[class*="toctree-l"]:not(.toctree-l1) { display: none; }
+.wy-menu-vertical .toctree-l2,
+.wy-menu-vertical .toctree-l3,
+.wy-menu-vertical .toctree-l4 { display: none; }
