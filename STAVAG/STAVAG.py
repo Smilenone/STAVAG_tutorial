@@ -5,7 +5,7 @@ Created on April 2 18:59:29 2025
 @author: Qunlun Shen
 """
 from __future__ import annotations
-from typing import Dict, Optional, Sequence, Tuple
+from typing import Dict, Optional, Sequence, Tuple, Any
 try:
     from anndata import AnnData
 except Exception:
@@ -288,3 +288,4 @@ def gene_modules(adata, gene_list):
     Z = linkage(corr, 'complete', metric='correlation')
 
     return Z, corr, df
+
