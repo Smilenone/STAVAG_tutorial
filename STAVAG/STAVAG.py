@@ -6,7 +6,10 @@ Created on April 2 18:59:29 2025
 """
 from __future__ import annotations
 from typing import Dict, Optional, Sequence, Tuple
-
+try:
+    from anndata import AnnData
+except Exception:
+    AnnData = Any
 import numpy as np
 import pandas as pd
 import scanpy as sc
@@ -283,4 +286,5 @@ def gene_modules(adata, gene_list):
     df = adata[:, gene_list].to_df()
     corr = df.corr()
     Z = linkage(corr, 'complete', metric='correlation')
+
     return Z, corr, df
