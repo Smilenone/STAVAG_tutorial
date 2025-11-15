@@ -53,7 +53,20 @@ if not hasattr(_pandas, "DataFrame"):
 _scanpy = _ensure_module("scanpy")
 if not hasattr(_scanpy, "AnnData"):
     _scanpy.AnnData = _anndata.AnnData
+    
+# tqdm placeholder so "import tqdm" / "from tqdm.auto import tqdm" work
+_tqdm = _ensure_module("tqdm")
+_tqdm_auto = _ensure_module("tqdm.auto")
 
+if not hasattr(_tqdm, "tqdm"):
+    def _noop_tqdm(iterable=None, *args, **kwargs):
+        """Lightweight stand-in for tqdm that simply returns the iterable."""
+        return iterable if iterable is not None else []
+    _tqdm.tqdm = _noop_tqdm
+
+if not hasattr(_tqdm_auto, "tqdm"):
+    _tqdm_auto.tqdm = _tqdm.tqdm
+    
 # matplotlib and pyplot
 _matplotlib = _ensure_module("matplotlib")
 _ensure_module("matplotlib.pyplot")  # enough for "import matplotlib.pyplot as plt"
