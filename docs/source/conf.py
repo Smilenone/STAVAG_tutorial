@@ -57,15 +57,27 @@ if not hasattr(_scanpy, "AnnData"):
 # tqdm placeholder so "import tqdm" / "from tqdm.auto import tqdm" work
 _tqdm = _ensure_module("tqdm")
 _tqdm_auto = _ensure_module("tqdm.auto")
+_tqdm_nb = _ensure_module("tqdm.notebook")
 
+def _noop_tqdm(iterable=None, *args, **kwargs):
+    """Lightweight stand-in for tqdm that simply returns the iterable."""
+    return iterable if iterable is not None else []
+
+# tqdm.tqdm
 if not hasattr(_tqdm, "tqdm"):
-    def _noop_tqdm(iterable=None, *args, **kwargs):
-        """Lightweight stand-in for tqdm that simply returns the iterable."""
-        return iterable if iterable is not None else []
     _tqdm.tqdm = _noop_tqdm
 
+# tqdm.tqdm_notebook (legacy import style)
+if not hasattr(_tqdm, "tqdm_notebook"):
+    _tqdm.tqdm_notebook = _noop_tqdm
+
+# from tqdm.auto import tqdm
 if not hasattr(_tqdm_auto, "tqdm"):
-    _tqdm_auto.tqdm = _tqdm.tqdm
+    _tqdm_auto.tqdm = _noop_tqdm
+
+# from tqdm.notebook import tqdm
+if not hasattr(_tqdm_nb, "tqdm"):
+    _tqdm_nb.tqdm = _noop_tqdm
     
 # matplotlib and pyplot
 _matplotlib = _ensure_module("matplotlib")
