@@ -16,6 +16,7 @@ Uncovering directionally and temporally variable genes with STAVAG
    Case_III_STAVAG_on_STARmap_3D_cortex
    Case_IV_STAVAG_on_mouse_myocardial_infarction_progression_data
    Case_V_STAVAG_on_mouse_embryonic_development_data
+   Supp_1_Nonlinear curve fitting
 
 .. toctree::
    :maxdepth: 1
